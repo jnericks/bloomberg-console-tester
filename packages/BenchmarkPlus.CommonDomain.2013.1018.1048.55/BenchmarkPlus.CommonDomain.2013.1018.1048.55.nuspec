@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>BenchmarkPlus.CommonDomain</id>
+    <version>2013.1018.1048.55</version>
+    <title>BenchmarkPlus.CommonDomain</title>
+    <authors>jerickson, jchristian</authors>
+    <owners>jerickson, jchristian</owners>
+    <licenseUrl>http://bpfunds.com/</licenseUrl>
+    <projectUrl>http://bpfunds.com/</projectUrl>
+    <iconUrl>http://gameplan.bpfunds.com/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Benchmark Plus Common Domain</description>
+    <summary>Benchmark Plus Common Domain</summary>
+    <tags>benchmarkplus bplus</tags>
+    <dependencies>
+      <dependency id="AutoMapper" version="[2.1.267.0]" />
+    </dependencies>
+  </metadata>
+</package>
