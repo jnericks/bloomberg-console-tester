@@ -11,8 +11,8 @@ iex "$msbuild /p:Configuration=""$build_configuration"" $solution_file"
 $publish_dir = "\\sbserver\CustomApps\DEV\$solution_name"
 
 ""
-"Cleaning directory: $publish_dir"
 Remove-Item "$publish_dir\*" -recurse
-"Publishing $build_configuration to directory: $publish_dir"
+"Cleaned directory: $publish_dir"
 Copy-Item "$base_directory\$solution_name\bin\$build_configuration\*" $publish_dir
+"Published $build_configuration to directory: $publish_dir"
 ""
