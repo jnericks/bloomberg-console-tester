@@ -1,4 +1,5 @@
 ﻿using System;
+using BloombergConsoleTester.Infrastructure.NHibernate;
 
 namespace BloombergConsoleTester
 {
@@ -6,9 +7,10 @@ namespace BloombergConsoleTester
     {
         static void Main(string[] args)
         {
+            ConfigurationFactory.ConnectionString = () => @"Data Source=MOTHERSHIP;Initial Catalog=bpUserAcceptanceTester;Persist Security Info=True;User ID=bpUser;Password=1paradigm2;";
             var input = string.Empty;
 
-            //Console.WriteLine(@"Type security (eg. SPX INDEX)...");
+            //Console.WriteLine(@"Name Index (eg. SPX INDEX)...");
             //Console.WriteLine();
             //var input = Console.ReadLine();
             Console.WriteLine(@"Push enter to start the application.");
@@ -17,7 +19,7 @@ namespace BloombergConsoleTester
 
             if (string.IsNullOrWhiteSpace(input)) input = @"SPX INDEX";
 
-            HistoricalDataRequest.RunExample(input);
+            StaticDataRequest.RunExample(input);
 
             Console.WriteLine(string.Empty);
             Console.WriteLine(@"Push enter to quit the application.");

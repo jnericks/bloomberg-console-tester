@@ -39,14 +39,28 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\BEmu.dll</HintPath>
     </Reference>
-    <Reference Include="BenchmarkPlus.CommonDomain">
-      <HintPath>..\packages\BenchmarkPlus.CommonDomain.2013.1018.1048.55\lib\BenchmarkPlus.CommonDomain.dll</HintPath>
+    <Reference Include="BenchmarkPlus.CommonDomain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BenchmarkPlus.CommonDomain.2013.1204.1309.57\lib\BenchmarkPlus.CommonDomain.dll</HintPath>
     </Reference>
     <Reference Include="Bloomberglp.Blpapi, Version=3.3.1.1, Culture=neutral, PublicKeyToken=ec3efa8c033c2bc5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Bloomberglp.Blpapi.dll</HintPath>
     </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq">
+      <HintPath>..\packages\NHibernate.Linq.1.0\lib\NHibernate.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -55,10 +69,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BBIndexReturn.cs" />
-    <Compile Include="BBIndexReturnCollection.cs" />
+    <Compile Include="Infrastructure\NHibernate\ConfigurationFactory.cs" />
+    <Compile Include="Infrastructure\NHibernate\IConfigurationFactory.cs" />
+    <Compile Include="Infrastructure\NHibernate\IInstanceScoper.cs" />
+    <Compile Include="Infrastructure\NHibernate\InstanceScoper.cs" />
+    <Compile Include="Infrastructure\NHibernate\InstanceScoperBase.cs" />
+    <Compile Include="Infrastructure\NHibernate\IScope.cs" />
+    <Compile Include="Infrastructure\NHibernate\IScopedSessionBuilder.cs" />
+    <Compile Include="Infrastructure\NHibernate\ISessionBuilder.cs" />
+    <Compile Include="Infrastructure\NHibernate\ISessionFactoryBuilder.cs" />
+    <Compile Include="Infrastructure\NHibernate\ScopedSessionBuilder.cs" />
+    <Compile Include="Infrastructure\NHibernate\SessionBuilder.cs" />
+    <Compile Include="Infrastructure\NHibernate\SessionFactoryBuilder.cs" />
+    <Compile Include="Infrastructure\Repositories\IIndexRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\IndexRepository.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Core\Models\Index.cs" />
+    <Compile Include="Core\Models\IndexDailyPerformance.cs" />
+    <Compile Include="Core\Inputs\IndexDailyPerformanceInput.cs" />
+    <Compile Include="Core\Models\IndexPerformance.cs" />
+    <Compile Include="Core\Inputs\IndexPerformanceInput.cs" />
+    <Compile Include="Infrastructure\Mappings\ComponentPart.cs" />
+    <Compile Include="Infrastructure\Mappings\IndexDailyPerformanceMap.cs" />
+    <Compile Include="Infrastructure\Mappings\IndexMap.cs" />
+    <Compile Include="Infrastructure\Mappings\IndexPerformanceMap.cs" />
+    <Compile Include="Infrastructure\Mappings\PersistentObjectClassMap.cs" />
+    <Compile Include="Infrastructure\Mappings\PersistentObjectEqualityComparer.cs" />
+    <Compile Include="TotalReturn.cs" />
+    <Compile Include="TotalReturns.cs" />
     <Compile Include="BloombergExtensions.cs" />
-    <Compile Include="HistoricalDataRequest.cs" />
+    <Compile Include="BloombergRequest.cs" />
+    <Compile Include="StaticDataRequest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestType.cs" />
@@ -67,6 +108,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

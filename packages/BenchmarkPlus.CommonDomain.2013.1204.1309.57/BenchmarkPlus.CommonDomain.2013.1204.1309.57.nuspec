@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>BenchmarkPlus.CommonDomain</id>
-    <version>2013.1018.1048.55</version>
+    <version>2013.1204.1309.57</version>
     <title>BenchmarkPlus.CommonDomain</title>
     <authors>jerickson, jchristian</authors>
     <owners>jerickson, jchristian</owners>

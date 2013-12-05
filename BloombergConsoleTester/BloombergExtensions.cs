@@ -36,5 +36,32 @@ namespace BloombergConsoleTester
                 }
             }
         }
+
+        public static void ForEachFieldData(this Event @event, Action<Element> process)
+        {
+            foreach (var message in @event.GetMessages())
+            {
+                if (message.MessageType.ToString() == "HistoricalDataResponse")
+                {
+                    var securityData = message["securityData"];
+                    var fieldDatas = securityData["fieldData"];
+                    for (var idx = 0; idx < fieldDatas.NumValues; idx++)
+                    {
+                        var fieldData = fieldDatas.GetValueAsElement(idx);
+                        process(fieldData);
+                    }
+                }
+                else if (message.MessageType.ToString() == "ReferenceDataResponse")
+                {
+                    var securityDatas = message["securityData"];
+                    for (int idx = 0; idx < securityDatas.NumValues; idx++)
+                    {
+                        var securityData = securityDatas.GetValueAsElement(idx);
+                        var fieldData = securityData["fieldData"];
+                        process(fieldData);
+                    }
+                }
+            }
+        }
     }
 }

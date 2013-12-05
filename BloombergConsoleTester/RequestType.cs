@@ -2,24 +2,24 @@
 {
     public class RequestType
     {
-        public string Type { get; private set; }
+        public string Name { get; private set; }
 
         public static RequestType HistoricalDataRequest = new RequestType(@"HistoricalDataRequest");
         public static RequestType ReferenceDataRequest = new RequestType(@"ReferenceDataRequest");
 
-        RequestType(string type)
+        RequestType(string name)
         {
-            Type = type;
+            Name = name;
         }
 
         public override string ToString()
         {
-            return Type;
+            return Name;
         }
 
         public static implicit operator string(RequestType requestType)
         {
-            return requestType.Type;
+            return requestType.Name;
         }
     }
 }

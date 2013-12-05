@@ -2,26 +2,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using BloombergConsoleTester.Core.Models;
 
 namespace BloombergConsoleTester
 {
-    public class BBIndexReturnCollection : ICollection<BBIndexReturn>
+    public class TotalReturns : ICollection<TotalReturn>
     {
-        public BBIndexReturn Head { get; protected set; }
+        public TotalReturn Head { get; protected set; }
         public int Count { get; protected set; }
+
+        public Index Security { get; protected set; }
 
         public bool IsReadOnly
         {
             get { return false; }
         }
 
-        public BBIndexReturnCollection()
+        public TotalReturns(Index security)
         {
+            Security = security;
             Count = 0;
             Head = null;
         }
 
-        public IEnumerator<BBIndexReturn> GetEnumerator()
+        public IEnumerator<TotalReturn> GetEnumerator()
         {
             var current = Head;
             while (current != null)
@@ -38,10 +42,10 @@ namespace BloombergConsoleTester
 
         public void Add(DateTime dateTime, decimal? value = 0)
         {
-            Add(new BBIndexReturn(dateTime, value));
+            Add(new TotalReturn(dateTime, value));
         }
 
-        public void Add(BBIndexReturn @return)
+        public void Add(TotalReturn @return)
         {
             Count++;
 
@@ -56,7 +60,7 @@ namespace BloombergConsoleTester
                 return;
             }
 
-            // Find spot for BBIndexReturn - keep things ordered by DateTime
+            // Find spot for TotalReturn - keep things ordered by DateTime
             var current = Head;
 
             // Is this the new Head?
@@ -93,12 +97,12 @@ namespace BloombergConsoleTester
             Head = null;
         }
 
-        public bool Contains(BBIndexReturn @return)
+        public bool Contains(TotalReturn @return)
         {
             return Enumerable.Contains(this, @return);
         }
 
-        public void CopyTo(BBIndexReturn[] array, int arrayIndex)
+        public void CopyTo(TotalReturn[] array, int arrayIndex)
         {
             var i = arrayIndex;
             foreach (var element in this)
@@ -108,7 +112,7 @@ namespace BloombergConsoleTester
             }
         }
 
-        public bool Remove(BBIndexReturn @return)
+        public bool Remove(TotalReturn @return)
         {
             if (Contains(@return))
             {
